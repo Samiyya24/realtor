@@ -63,6 +63,8 @@ model ObjectType {
 
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+
+  @@map("objectType")
 }
 
 model Realtor {
@@ -77,6 +79,8 @@ model Realtor {
   password        String
   Object          Object?  @relation(fields: [objectId], references: [id])
   objectId        Int?
+
+  @@map("realtor")
 }
 
 model ResidenceType {
@@ -85,6 +89,8 @@ model ResidenceType {
   name           String
   Object         Object? @relation(fields: [objectId], references: [id])
   objectId       Int?
+
+  @@map("residenceType")
 }
 
 model ObjectCategory {
@@ -92,6 +98,8 @@ model ObjectCategory {
   name     String
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+
+  @@map("objectCategory")
 }
 
 model ObjectStatus {
@@ -99,6 +107,8 @@ model ObjectStatus {
   name     String
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+
+  @@map("objectStatus")
 }
 
 model Currency {
@@ -107,6 +117,8 @@ model Currency {
   rate     Float
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+
+  @@map("currency")
 }
 
 model Renovation {
@@ -114,6 +126,8 @@ model Renovation {
   name     String
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+
+  @@map("renovation")
 }
 
 model WindowSide {
@@ -121,6 +135,8 @@ model WindowSide {
   name     String
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+
+  @@map("windowSide")
 }
 
 model RoomType {
@@ -128,6 +144,8 @@ model RoomType {
   name     String
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+
+  @@map("roomType")
 }
 
 model OwnerRealtion {
@@ -143,6 +161,8 @@ model OwnerRealtion {
   owner_price_ideal    Float
   owner_price_real     Float
   owner_price_minimal  Float
+
+  @@map("ownerRealtion")
 }
 
 model OwnerShip {
@@ -150,6 +170,8 @@ model OwnerShip {
   name            String
   OwnerRealtion   OwnerRealtion? @relation(fields: [ownerRealtionId], references: [id])
   ownerRealtionId Int?
+
+  @@map("ownerShip")
 }
 
 model ReasonDeleting {
@@ -157,6 +179,8 @@ model ReasonDeleting {
   name            String
   OwnerRealtion   OwnerRealtion? @relation(fields: [ownerRealtionId], references: [id])
   ownerRealtionId Int?
+
+  @@map("reasonDeleting")
 }
 
 model OwnerCooperation {
@@ -164,6 +188,8 @@ model OwnerCooperation {
   name            String
   OwnerRealtion   OwnerRealtion? @relation(fields: [ownerRealtionId], references: [id])
   ownerRealtionId Int?
+
+  @@map("ownerCooperation")
 }
 
 model RelationShipType {
@@ -171,6 +197,8 @@ model RelationShipType {
   name            String
   OwnerRealtion   OwnerRealtion? @relation(fields: [ownerRealtionId], references: [id])
   ownerRealtionId Int?
+
+  @@map("relationShipType")
 }
 
 model Address {
@@ -186,6 +214,8 @@ model Address {
   landmark             String
   metro_id             Metro[]
   location_description String
+
+  @@map("address")
 }
 
 model Region {
@@ -193,6 +223,8 @@ model Region {
   name      String
   Address   Address? @relation(fields: [addressId], references: [id])
   addressId Int?
+
+  @@map("region")
 }
 
 model District {
@@ -201,6 +233,8 @@ model District {
   name      String
   Address   Address? @relation(fields: [addressId], references: [id])
   addressId Int?
+
+  @@map("district")
 }
 
 model Metro {
@@ -208,6 +242,8 @@ model Metro {
   name      String
   Address   Address? @relation(fields: [addressId], references: [id])
   addressId Int?
+
+  @@map("metro")
 }
 
 model BuildingCharacter {
@@ -226,6 +262,8 @@ model BuildingCharacter {
   is_building_security      Boolean
   parking_id                Parking[]
   is_demolition_planned     Int
+
+  @@map("buildingCharacter")
 }
 
 model BuildingCondition {
@@ -233,6 +271,8 @@ model BuildingCondition {
   name                String
   BuildingCharacter   BuildingCharacter? @relation(fields: [buildingCharacterId], references: [id])
   buildingCharacterId Int?
+
+  @@map("buildingCondition")
 }
 
 model BuildingSeria {
@@ -240,6 +280,8 @@ model BuildingSeria {
   name                String
   BuildingCharacter   BuildingCharacter? @relation(fields: [buildingCharacterId], references: [id])
   buildingCharacterId Int?
+
+  @@map("buildingSeria")
 }
 
 model WallMaterial {
@@ -247,6 +289,8 @@ model WallMaterial {
   name                String
   BuildingCharacter   BuildingCharacter? @relation(fields: [buildingCharacterId], references: [id])
   buildingCharacterId Int?
+
+  @@map("wallMaterial")
 }
 
 model Overlaps {
@@ -254,6 +298,8 @@ model Overlaps {
   name                String
   BuildingCharacter   BuildingCharacter? @relation(fields: [buildingCharacterId], references: [id])
   buildingCharacterId Int?
+
+  @@map("overlaps")
 }
 
 model WaterSupply {
@@ -261,6 +307,8 @@ model WaterSupply {
   name                String
   BuildingCharacter   BuildingCharacter? @relation(fields: [buildingCharacterId], references: [id])
   buildingCharacterId Int?
+
+  @@map("waterSupply")
 }
 
 model HeatingSystem {
@@ -268,6 +316,8 @@ model HeatingSystem {
   name                String
   BuildingCharacter   BuildingCharacter? @relation(fields: [buildingCharacterId], references: [id])
   buildingCharacterId Int?
+
+  @@map("heatingSystem")
 }
 
 model Parking {
@@ -275,4 +325,6 @@ model Parking {
   name                String
   BuildingCharacter   BuildingCharacter? @relation(fields: [buildingCharacterId], references: [id])
   buildingCharacterId Int?
+
+  @@map("parking")
 }
