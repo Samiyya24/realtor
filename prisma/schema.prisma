@@ -15,7 +15,7 @@ datasource db {
 
 model Object {
   id                  Int              @id @default(autoincrement())
-  realtor_id          Int
+  realtor_id          Realtor[]
   object_type_id      ObjectType[]
   residence_type_id   ResidenceType[]
   object_category_id  ObjectCategory[]
@@ -63,6 +63,20 @@ model ObjectType {
 
   Object   Object? @relation(fields: [objectId], references: [id])
   objectId Int?
+}
+
+model Realtor {
+  id              Int      @id @default(autoincrement())
+  name            String
+  is_active       Boolean
+  firma_id        Int
+  reg_date        DateTime
+  deactivate_date DateTime
+  photo           String
+  login           String
+  password        String
+  Object          Object?  @relation(fields: [objectId], references: [id])
+  objectId        Int?
 }
 
 model ResidenceType {
