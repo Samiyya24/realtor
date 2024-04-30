@@ -9,7 +9,7 @@ export class ObjectTypeService {
 
   create(createObjectTypeDto: CreateObjectTypeDto) {
     return this.prismaService.objectType.create({
-      data: { name: createObjectTypeDto.name },
+      data:createObjectTypeDto 
     });
   }
 
@@ -18,7 +18,7 @@ export class ObjectTypeService {
   }
 
   findOne(id: number) {
-    return this.prismaService.objectType.findMany({
+    return this.prismaService.objectType.findUnique({
       where: {
         id,
       },
