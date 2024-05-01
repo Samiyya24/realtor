@@ -16,6 +16,7 @@ import { RelationshipTypeModule } from './relationship-type/relationship-type.mo
 import { RegionModule } from './region/region.module';
 import { DistrictModule } from './district/district.module';
 import { MetroModule } from './metro/metro.module';
+import { ObjectModule } from './object/object.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { MetroModule } from './metro/metro.module';
     RegionModule,
     DistrictModule,
     MetroModule,
+    ObjectModule,
   ],
   controllers: [],
   providers: [],
